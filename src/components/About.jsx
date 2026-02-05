@@ -69,5 +69,7 @@ Beyond code, I’m experienced in SEO, digital marketing, and UI design, with to
   );
 };
 
-export default SectionWrapper(About, "about");
+const AboutWrapped = SectionWrapper(About, "about");
+AboutWrapped.displayName = "About";
+export default AboutWrapped;
 
