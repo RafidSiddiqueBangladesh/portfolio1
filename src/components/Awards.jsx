@@ -59,9 +59,9 @@ const AwardCard = ({
       </div>
 
       <div className='mt-4 flex flex-wrap gap-2'>
-        {tags && tags.map((tag) => (
+        {tags && tags.map((tag, tagIndex) => (
           <p
-            key={`${title}-${tag.name}`}
+            key={tagIndex}
             className={`text-[14px] ${tag.color}`}
           >
             #{tag.name}

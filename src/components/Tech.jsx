@@ -1,5 +1,4 @@
 import React from "react";
-import { Tilt } from "react-tilt";
 import { motion } from "framer-motion";
 
 import { styles } from "../styles";
@@ -7,36 +6,25 @@ import { services } from "../constants";
 import { SectionWrapper } from "../hoc";
 import { fadeIn, textVariant } from "../utils/motion";
 
-import { BallCanvas } from "./canvas";
 import { technologies } from "../constants";
 
-const ServiceCard = ({ index, title, icon,source_code_link}) => (
-  <Tilt className='xs:w-[250px] w-full'>
-    <motion.div
-      variants={fadeIn("right", "spring", index * 0.5, 0.75)}
-      className='w-full green-pink-gradient p-[1px] rounded-[20px] shadow-card'
-    >
-      <div
-        options={{
-          max: 45,
-          scale: 1,
-          speed: 450,
-        }}
-        className='bg-tertiary rounded-[20px] py-5 px-12 min-h-[280px] flex justify-evenly items-center flex-col'
-        onClick={() => window.open(source_code_link, "_blank")}
-      >
-        <img
-          src={icon}
-          alt='web-development'
-          className='w-16 h-16 object-contain'
-        />
-
-        <h3 className='text-white text-[20px] font-bold text-center'>
-          {title}
-        </h3>
-      </div>
-    </motion.div>
-  </Tilt>
+const ServiceCard = ({ index, title, icon, source_code_link }) => (
+  <motion.div
+    variants={fadeIn("right", "spring", index * 0.5, 0.75)}
+    className='w-full sm:w-[280px] bg-tertiary rounded-[20px] p-5 hover:shadow-xl transition-shadow duration-300 cursor-pointer'
+    onClick={() => window.open(source_code_link, "_blank")}
+  >
+    <div className='flex flex-col items-center justify-center gap-3 h-full'>
+      <img
+        src={icon}
+        alt={title}
+        className='w-16 h-16 object-contain'
+      />
+      <h3 className='text-white text-[18px] font-bold text-center'>
+        {title}
+      </h3>
+    </div>
+  </motion.div>
 );
 
 const Tech = () => {
@@ -46,11 +34,20 @@ const Tech = () => {
         <p className={styles.sectionSubText}>Tools of my trade</p>
         <h2 className={styles.sectionHeadText}>Technologies</h2>
       </motion.div>
-      <div className=' mt-20 flex flex-row flex-wrap justify-center gap-10'>
+      <div className='mt-20 flex flex-row flex-wrap justify-center gap-6'>
         {technologies.map((technology) => (
-          <div className='w-28 h-28' key={technology.name}>
-            <BallCanvas icon={technology.icon} />
-          </div>
+          <motion.div
+            key={technology.name}
+            variants={fadeIn("up", "spring", Math.random() * 0.5, 0.5)}
+            className='w-20 h-20 sm:w-24 sm:h-24 bg-tertiary rounded-lg flex items-center justify-center hover:shadow-lg transition-shadow duration-300'
+            title={technology.name}
+          >
+            <img
+              src={technology.icon}
+              alt={technology.name}
+              className='w-12 h-12 sm:w-14 sm:h-14 object-contain'
+            />
+          </motion.div>
         ))}
       </div>
       <div className='mt-20 flex flex-wrap gap-10'>

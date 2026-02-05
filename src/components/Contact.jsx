@@ -3,7 +3,6 @@ import { fadeIn } from "../utils/motion";
 import { useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
 import { styles } from "../styles";
-import { EarthCanvas } from "./canvas";
 import { SectionWrapper } from "../hoc";
 
 const Contact = () => {
@@ -111,9 +110,34 @@ const Contact = () => {
 
       <motion.div
         variants={fadeIn("right", "tween", 0.2, 1)}
-        className='hidden lg:block xl:flex-1 xl:h-auto'
+        className='hidden lg:flex lg:flex-1 lg:h-auto items-center justify-center'
       >
-        <EarthCanvas />
+        <div className='bg-black-100 p-8 rounded-2xl border border-tertiary w-full max-w-sm'>
+          <h3 className='text-white text-[24px] font-bold mb-6'>Contact Info</h3>
+          
+          <div className='space-y-4'>
+            <div>
+              <p className='text-secondary text-sm mb-1'>Email</p>
+              <a href='mailto:your-email@example.com' className='text-white hover:text-[#915EFF] transition'>
+                rafidsiddique.bd@gmail.com
+              </a>
+            </div>
+            
+            <div>
+              <p className='text-secondary text-sm mb-1'>LinkedIn</p>
+              <a href='https://www.linkedin.com/in/rafid-siddique-3131b9216/' target='_blank' rel='noopener noreferrer' className='text-white hover:text-[#915EFF] transition'>
+                linkedin.com/in/rafid-siddique
+              </a>
+            </div>
+            
+            <div>
+              <p className='text-secondary text-sm mb-1'>GitHub</p>
+              <a href='https://github.com/RafidSiddiqueBangladesh' target='_blank' rel='noopener noreferrer' className='text-white hover:text-[#915EFF] transition'>
+                github.com/RafidSiddiqueBangladesh
+              </a>
+            </div>
+          </div>
+        </div>
       </motion.div>
     </div>
   );
