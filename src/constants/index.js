@@ -647,7 +647,7 @@ const projects = [
                 color: "pink-text-gradient",
             },
         ],
-        image: project15,
+        image: project3,
         source_code_link: "https://github.com/RafidSiddiqueBangladesh/3d",
         live_link: "https://3drafid.netlify.app/",
     },
