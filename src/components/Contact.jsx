@@ -35,13 +35,13 @@ const Contact = () => {
   };
 
   return (
-    <div className={`xl:mt-12 flex xl:flex-row flex-col-reverse gap-10 overflow-hidden`}>
+    <div className={`xl:mt-12 flex xl:flex-row flex-col-reverse gap-10 overflow-hidden w-full`}>
       <motion.div
         variants={fadeIn("up", 0.2)}
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.3 }}
-        className='flex-[0.75] bg-black-100 p-8 rounded-2xl'
+        className='w-full xl:flex-[0.75] bg-black-100 p-6 sm:p-8 rounded-2xl'
       >
         <p className={styles.sectionSubText}>Get in touch</p>
         <h3 className={styles.sectionHeadText}>Contact.</h3>
@@ -52,15 +52,15 @@ const Contact = () => {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.3 }}
-          className='mt-12 flex flex-col gap-8'
+          className='mt-8 sm:mt-12 flex flex-col gap-6 sm:gap-8'
           onSubmit={handleSubmit}
         >
-          <div className='flex gap-x-6 w-full'>
+          <div className='flex flex-col sm:flex-row gap-3 sm:gap-6 w-full'>
             <input
               type='text'
               name='name'
               placeholder='Your Name'
-              className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium flex-1'
+              className='w-full bg-tertiary py-3 sm:py-4 px-4 sm:px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium text-sm sm:text-base'
               disabled={isLoading}
               required
             />
@@ -68,7 +68,7 @@ const Contact = () => {
               type='email'
               name='email'
               placeholder='Your Email'
-              className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium flex-1'
+              className='w-full bg-tertiary py-3 sm:py-4 px-4 sm:px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium text-sm sm:text-base'
               disabled={isLoading}
               required
             />
@@ -78,23 +78,23 @@ const Contact = () => {
             type='text'
             name='subject'
             placeholder='Subject'
-            className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium'
+            className='w-full bg-tertiary py-3 sm:py-4 px-4 sm:px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium text-sm sm:text-base'
             disabled={isLoading}
             required
           />
 
           <textarea
-            rows={7}
+            rows={5}
             name='message'
             placeholder='Your Message'
-            className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium'
+            className='w-full bg-tertiary py-3 sm:py-4 px-4 sm:px-6 placeholder:text-secondary text-white rounded-lg outline-none border-none font-medium text-sm sm:text-base resize-none'
             disabled={isLoading}
             required
           />
 
           <button
             type='submit'
-            className='bg-tertiary py-3 px-8 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-primary transition-all duration-300 flex items-center justify-center gap-2 hover:bg-accent group disabled:opacity-50'
+            className='bg-tertiary py-3 px-6 sm:px-8 rounded-xl outline-none w-full sm:w-fit text-white font-bold shadow-md shadow-primary transition-all duration-300 flex items-center justify-center gap-2 hover:bg-accent group disabled:opacity-50 text-sm sm:text-base'
             disabled={isLoading}
           >
             {isLoading ? (
@@ -111,7 +111,7 @@ const Contact = () => {
 
       <motion.div
         variants={fadeIn("right", "tween", 0.2, 1)}
-        className='xl:flex-1 xl:h-auto md:h-[550px] h-[350px]'
+        className='hidden lg:block xl:flex-1 xl:h-auto'
       >
         <EarthCanvas />
       </motion.div>

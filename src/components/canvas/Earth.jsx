@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React, { Suspense, useState, useEffect } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
 
@@ -8,11 +8,38 @@ const Earth = () => {
   const earth = useGLTF("./planet/scene.gltf");
 
   return (
-    <primitive object={earth.scene} scale={2.5} position-y={0} rotation-y={0} />
+    <primitive 
+      object={earth.scene} 
+      scale={2.5} 
+      position={[0, 0, 0]} 
+      rotation={[0, 0, 0]} 
+    />
   );
 };
 
 const EarthCanvas = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 768px)");
+    setIsMobile(mediaQuery.matches);
+
+    const handleMediaQueryChange = (event) => {
+      setIsMobile(event.matches);
+    };
+
+    mediaQuery.addEventListener("change", handleMediaQueryChange);
+    return () => mediaQuery.removeEventListener("change", handleMediaQueryChange);
+  }, []);
+
+  if (isMobile) {
+    return (
+      <div className='w-full h-full bg-black-100 rounded-2xl flex items-center justify-center'>
+        <p className='text-secondary text-sm'>3D View - Desktop Only</p>
+      </div>
+    );
+  }
+
   return (
     <Canvas
       shadows
