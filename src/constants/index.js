@@ -94,7 +94,7 @@ const services = [
     {
         title: "Resume",
         icon: creator,
-        source_code_link: "https://drive.google.com/file/d/1XAiESDMxIwUHD4DedwRGOOYapJS9DbVG/view?usp=sharing",
+        source_code_link: "https://docs.google.com/document/d/10rjzbbBAM17veWhOzdf_YuhnuIr17FF1xp00ld3UpZQ/edit?usp=sharing",
     },
 ];
 
